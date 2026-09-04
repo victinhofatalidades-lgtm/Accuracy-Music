@@ -48,64 +48,19 @@ st.markdown("""
         padding-top: 20px;
     }
 
-    /* Logo */
-    .logo {
-        font-size: 28px;
-        font-weight: 800;
-        color: #ffffff;
-        margin-bottom: 30px;
-    }
-
-    .logo span {
-        color: #9b5cff;
-    }
-
-    /* Hero */
-    .hero {
+    /* Títulos e textos */
+    h1 {
         text-align: center;
-        padding: 45px 20px;
-        margin-bottom: 30px;
-        border-radius: 20px;
-        background: rgba(25, 20, 38, 0.75);
-        border: 1px solid rgba(155, 92, 255, 0.35);
-    }
-
-    .hero h1 {
-        font-size: 42px;
-        margin-bottom: 15px;
-        color: white;
-    }
-
-    .hero h1 span {
-        color: #a66cff;
-    }
-
-    .hero p {
-        font-size: 17px;
-        color: #bdb8ca;
-        margin: 0;
-    }
-
-    /* Cards */
-    .card {
-        background: rgba(23, 20, 32, 0.85);
-        border: 1px solid rgba(155, 92, 255, 0.30);
-        border-radius: 18px;
-        padding: 25px;
-        margin-bottom: 20px;
-    }
-
-    .card-title {
-        font-size: 21px;
-        font-weight: 700;
-        color: white;
+        color: #ffffff !important;
         margin-bottom: 10px;
     }
 
-    .card-description {
-        font-size: 14px;
-        color: #aaa4b7;
-        margin-bottom: 20px;
+    h2, h3 {
+        color: #ffffff !important;
+    }
+
+    .stCaption {
+        color: #bdb8ca !important;
     }
 
     /* Inputs */
@@ -140,60 +95,7 @@ st.markdown("""
         box-shadow: 0 8px 25px rgba(140, 75, 255, 0.35);
     }
 
-    /* Resultado */
-    .result-card {
-        text-align: center;
-        background: linear-gradient(
-            135deg,
-            rgba(45, 28, 75, 0.9),
-            rgba(25, 19, 42, 0.95)
-        );
-        border: 1px solid rgba(166, 108, 255, 0.45);
-        border-radius: 20px;
-        padding: 35px;
-        margin-top: 25px;
-    }
 
-    .score {
-        font-size: 72px;
-        font-weight: 800;
-        color: #a66cff;
-        margin: 10px 0;
-    }
-
-    .score-label {
-        color: #bdb8ca;
-        font-size: 15px;
-    }
-
-    .result-title {
-        font-size: 24px;
-        font-weight: 700;
-        color: white;
-        margin-top: 10px;
-    }
-
-    /* Métricas */
-    .metric-card {
-        background: rgba(20, 17, 29, 0.8);
-        border: 1px solid rgba(155, 92, 255, 0.25);
-        border-radius: 14px;
-        padding: 18px;
-        text-align: center;
-    }
-
-    .metric-number {
-        font-size: 25px;
-        font-weight: 700;
-        color: #a66cff;
-    }
-
-    .metric-text {
-        font-size: 13px;
-        color: #aaa4b7;
-    }
-
-    /* Rodapé */
     .footer {
         text-align: center;
         margin-top: 50px;
@@ -209,44 +111,22 @@ st.markdown("""
 # LOGO
 # ============================================================
 
-st.markdown("""
-<div class="logo">
-    🎵 Accuracy<span>Music</span>
-</div>
-""", unsafe_allow_html=True)
+st.markdown("## 🎵 Accuracy**Music**")
 
 # ============================================================
 # HERO
 # ============================================================
 
-st.markdown("""
-<div class="hero">
-    <h1>
-        Descubra o potencial da sua <span>música</span>
-    </h1>
-
-    <p>
-        Informe as características da música ou envie um arquivo
-        de áudio para realizar uma análise.
-    </p>
-</div>
-""", unsafe_allow_html=True)
+st.title("Descubra o potencial da sua música")
+st.caption("Informe as características da música ou envie um arquivo de áudio para realizar uma análise.")
 
 # ============================================================
 # INFORMAÇÕES DA MÚSICA
 # ============================================================
 
-st.markdown("""
-<div class="card">
-    <div class="card-title">
-        🎧 Informações da música
-    </div>
-
-    <div class="card-description">
-        Preencha as informações abaixo.
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.subheader("🎧 Informações da música")
+st.caption("Preencha as informações abaixo.")
+st.divider()
 
 # ============================================================
 # PRIMEIRA LINHA
@@ -416,13 +296,8 @@ with col3:
 # DURAÇÃO
 # ============================================================
 
-st.markdown("""
-<div class="card">
-    <div class="card-title">
-        ⏱️ Duração
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.subheader("⏱️ Duração")
+st.divider()
 
 col1, col2 = st.columns(2)
 
@@ -450,17 +325,9 @@ duracao_segundos = (minutos * 60) + segundos
 # INSTRUMENTOS
 # ============================================================
 
-st.markdown("""
-<div class="card">
-    <div class="card-title">
-        🎸 Instrumentos
-    </div>
-
-    <div class="card-description">
-        Selecione os instrumentos presentes na música.
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.subheader("🎸 Instrumentos")
+st.caption("Selecione os instrumentos presentes na música.")
+st.divider()
 
 instrumentos = st.multiselect(
     "Instrumentos utilizados",
@@ -485,17 +352,9 @@ instrumentos = st.multiselect(
 # CARACTERÍSTICAS
 # ============================================================
 
-st.markdown("""
-<div class="card">
-    <div class="card-title">
-        🎛️ Características
-    </div>
-
-    <div class="card-description">
-        Informe algumas características adicionais da música.
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.subheader("🎛️ Características")
+st.caption("Informe algumas características adicionais da música.")
+st.divider()
 
 col1, col2 = st.columns(2)
 
@@ -517,18 +376,9 @@ with col2:
 # ARQUIVO DE ÁUDIO
 # ============================================================
 
-st.markdown("""
-<div class="card">
-    <div class="card-title">
-        🎵 Arquivo da música
-    </div>
-
-    <div class="card-description">
-        Envie o arquivo de áudio para que futuramente
-        possamos extrair informações automaticamente.
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.subheader("🎵 Arquivo da música")
+st.caption("Envie o arquivo de áudio para que futuramente possamos extrair informações automaticamente.")
+st.divider()
 
 arquivo_musica = st.file_uploader(
     "Escolha o arquivo de áudio",
@@ -634,7 +484,7 @@ def gerar_resultado():
 # BOTÃO ANALISAR
 # ============================================================
 
-st.markdown("<br>", unsafe_allow_html=True)
+st.write("")
 
 if st.button("🚀 ANALISAR MÚSICA"):
 
@@ -660,99 +510,37 @@ if st.button("🚀 ANALISAR MÚSICA"):
     # RESULTADO
     # ========================================================
 
-    st.markdown(f"""
-    <div class="result-card">
-
-        <div class="score-label">
-            POTENCIAL DE POPULARIDADE
-        </div>
-
-        <div class="score">
-            {score}
-        </div>
-
-        <div class="score-label">
-            de 100
-        </div>
-
-        <div class="result-title">
-            {categoria}
-        </div>
-
-    </div>
-    """, unsafe_allow_html=True)
+    st.subheader("📈 Resultado da análise")
+    st.metric("Potencial de popularidade", f"{score}/100")
+    st.success(categoria)
 
     # ========================================================
     # MÉTRICAS
     # ========================================================
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.write("")
 
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-number">
-                {bpm}
-            </div>
-            <div class="metric-text">
-                BPM
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.metric("BPM", bpm)
 
     with col2:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-number">
-                {minutos}:{segundos:02d}
-            </div>
-            <div class="metric-text">
-                Duração
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.metric("Duração", f"{minutos}:{segundos:02d}")
 
     with col3:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-number">
-                {len(instrumentos)}
-            </div>
-            <div class="metric-text">
-                Instrumentos
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.metric("Instrumentos", len(instrumentos))
 
     with col4:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-number">
-                {genero}
-            </div>
-            <div class="metric-text">
-                Gênero
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.metric("Gênero", genero)
 
     # ========================================================
     # DETALHES
     # ========================================================
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.write("")
 
-    st.markdown("""
-    <div class="card">
-
-        <div class="card-title">
-            📊 Detalhes da análise
-        </div>
-
-    </div>
-    """, unsafe_allow_html=True)
+    st.subheader("📊 Detalhes da análise")
 
     st.write(f"**Gênero:** {genero}")
     st.write(f"**Streaming:** {streaming}")
@@ -775,10 +563,5 @@ if st.button("🚀 ANALISAR MÚSICA"):
 # RODAPÉ
 # ============================================================
 
-st.markdown("""
-<div class="footer">
-    Accuracy Music © 2026
-    <br>
-    Projeto acadêmico de Ciência de Dados e Machine Learning
-</div>
-""", unsafe_allow_html=True)
+st.divider()
+st.caption("Accuracy Music © 2026 — Projeto acadêmico de Ciência de Dados e Machine Learning")
