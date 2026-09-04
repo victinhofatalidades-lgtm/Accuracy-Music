@@ -95,7 +95,6 @@ st.markdown("""
         box-shadow: 0 8px 25px rgba(140, 75, 255, 0.35);
     }
 
-
     .footer {
         text-align: center;
         margin-top: 50px;
@@ -118,7 +117,10 @@ st.markdown("## 🎵 Accuracy**Music**")
 # ============================================================
 
 st.title("Descubra o potencial da sua música")
-st.caption("Informe as características da música ou envie um arquivo de áudio para realizar uma análise.")
+st.caption(
+    "Informe as características da música ou envie um arquivo "
+    "de áudio para realizar uma análise."
+)
 
 # ============================================================
 # INFORMAÇÕES DA MÚSICA
@@ -332,18 +334,69 @@ st.divider()
 instrumentos = st.multiselect(
     "Instrumentos utilizados",
     [
-        "Piano",
+        # CORDAS
         "Violão",
         "Guitarra",
+        "Guitarra elétrica",
+        "Guitarra acústica",
         "Baixo",
-        "Bateria",
+        "Contrabaixo",
+        "Ukulele",
+        "Banjo",
+        "Bandolim",
+        "Cavaquinho",
+        "Harpa",
         "Violino",
+        "Viola",
+        "Violoncelo",
+
+        # TECLAS
+        "Piano",
+        "Teclado",
+        "Órgão",
+        "Acordeon",
+        "Sanfona",
+        "Sintetizador",
+        "Rhodes",
+        "Cravo",
+
+        # PERCUSSÃO
+        "Bateria",
+        "Percussão",
+        "Cajón",
+        "Congas",
+        "Bongôs",
+        "Timbales",
+        "Pandeiro",
+        "Tamborim",
+        "Atabaque",
+        "Berimbau",
+        "Triângulo",
+        "Xilofone",
+        "Marimba",
+
+        # SOPROS
+        "Flauta",
+        "Flauta doce",
+        "Clarinete",
+        "Oboé",
+        "Fagote",
         "Saxofone",
         "Trompete",
-        "Sintetizador",
+        "Trombone",
+        "Tuba",
+        "Trompa",
+
+        # VOZ E PRODUÇÃO DIGITAL
         "Voz",
-        "Ukulele",
-        "Percussão",
+        "Coral",
+        "Beatbox",
+        "Drum Machine",
+        "Sampler",
+        "Turntable/DJ",
+        "Loops eletrônicos",
+
+        # OUTROS
         "Outro"
     ]
 )
@@ -377,7 +430,10 @@ with col2:
 # ============================================================
 
 st.subheader("🎵 Arquivo da música")
-st.caption("Envie o arquivo de áudio para que futuramente possamos extrair informações automaticamente.")
+st.caption(
+    "Envie o arquivo de áudio para que futuramente possamos "
+    "extrair informações automaticamente."
+)
 st.divider()
 
 arquivo_musica = st.file_uploader(
@@ -393,7 +449,6 @@ arquivo_musica = st.file_uploader(
 )
 
 if arquivo_musica is not None:
-
     st.success(
         f"Arquivo carregado: {arquivo_musica.name}"
     )
@@ -411,21 +466,16 @@ if arquivo_musica is not None:
 
 def gerar_resultado():
 
-    # --------------------------------------------------------
-    # ATENÇÃO:
-    # Esta função é apenas uma SIMULAÇÃO.
-    # Depois iremos substituir pelo modelo real do TCC.
-    # --------------------------------------------------------
+    # Esta função é uma simulação.
+    # Posteriormente, será substituída pelo modelo real.
 
     score = 50
 
     # BPM
     if 90 <= bpm <= 140:
         score += 10
-
     elif 70 <= bpm <= 160:
         score += 5
-
     else:
         score -= 3
 
@@ -436,7 +486,7 @@ def gerar_resultado():
         "Rap",
         "R&B",
         "Eletrônica",
-        "Funk"
+        "Funk Brasileiro"
     ]
 
     if genero in generos_favoraveis:
@@ -445,17 +495,14 @@ def gerar_resultado():
     # Duração
     if 150 <= duracao_segundos <= 240:
         score += 8
-
     elif 120 <= duracao_segundos <= 300:
         score += 4
-
     else:
         score -= 2
 
     # Instrumentos
     if len(instrumentos) >= 3:
         score += 5
-
     elif len(instrumentos) == 2:
         score += 3
 
@@ -490,34 +537,22 @@ if st.button("🚀 ANALISAR MÚSICA"):
 
     score = gerar_resultado()
 
-    # --------------------------------------------------------
     # CLASSIFICAÇÃO
-    # --------------------------------------------------------
-
     if score >= 80:
         categoria = "🔥 Alto potencial de popularidade"
-
     elif score >= 60:
         categoria = "🟢 Bom potencial de popularidade"
-
     elif score >= 40:
         categoria = "🟡 Potencial moderado"
-
     else:
         categoria = "🔵 Potencial baixo"
 
-    # ========================================================
     # RESULTADO
-    # ========================================================
-
     st.subheader("📈 Resultado da análise")
     st.metric("Potencial de popularidade", f"{score}/100")
     st.success(categoria)
 
-    # ========================================================
     # MÉTRICAS
-    # ========================================================
-
     st.write("")
 
     col1, col2, col3, col4 = st.columns(4)
@@ -534,12 +569,8 @@ if st.button("🚀 ANALISAR MÚSICA"):
     with col4:
         st.metric("Gênero", genero)
 
-    # ========================================================
     # DETALHES
-    # ========================================================
-
     st.write("")
-
     st.subheader("📊 Detalhes da análise")
 
     st.write(f"**Gênero:** {genero}")
@@ -564,4 +595,7 @@ if st.button("🚀 ANALISAR MÚSICA"):
 # ============================================================
 
 st.divider()
-st.caption("Accuracy Music © 2026 — Projeto acadêmico de Ciência de Dados e Machine Learning")
+st.caption(
+    "Accuracy Music © 2026 — "
+    "Projeto acadêmico de Ciência de Dados e Machine Learning"
+)
