@@ -6,7 +6,7 @@ import random
 # ============================================================
 
 st.set_page_config(
-    page_title="Accuracy Music",
+    page_title="AccuracyMusiik",
     page_icon="🎵",
     layout="wide",
     initial_sidebar_state="collapsed"
